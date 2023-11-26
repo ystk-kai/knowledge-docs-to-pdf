@@ -40,7 +40,6 @@ echo "Total files to process: $file_count"
 convert_mdx_to_pdf() {
   mdx_file=$1
   job_number=$2
-  echo "MDX file: $mdx_file"
   echo "Processing job number: $job_number, file: $mdx_file"
   pdf_file="$temp_output_dir/$(basename "$mdx_file" .mdx).pdf"
   pandoc -f markdown "$mdx_file" -o "$pdf_file" --pdf-engine=xelatex \

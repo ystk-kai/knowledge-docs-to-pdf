@@ -11,6 +11,6 @@ services:
   dev:
     <<: *knowledge-docs-to-pdf
     command: ["bash"]
-  convert:
+  convert-nextjs:
     <<: *knowledge-docs-to-pdf
     command: ["bash", "convert_nextjs_mdx_to_pdf.sh"]
