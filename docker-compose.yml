@@ -1,0 +1,16 @@
+version: "3.9"
+
+x-knowledge-docs-to-pdf: &knowledge-docs-to-pdf
+  image: knowledge-docs-to-pdf
+  build: .
+  working_dir: /app
+  volumes:
+    - .:/app
+
+services:
+  dev:
+    <<: *knowledge-docs-to-pdf
+    command: ["bash"]
+  convert:
+    <<: *knowledge-docs-to-pdf
+    command: ["bash", "convert_nextjs_mdx_to_pdf.sh"]
