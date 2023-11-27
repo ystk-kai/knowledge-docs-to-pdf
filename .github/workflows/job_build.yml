@@ -1,0 +1,24 @@
+name: Build
+
+on:
+  workflow_call:
+    secrets:
+      PERSONAL_ACCESS_TOKEN:
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Run convert next.js to pdf
+      run: docker-compose run convert-nextjs
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: nextjs_docs
+        path: ./dist/nextjs_docs.pdf
