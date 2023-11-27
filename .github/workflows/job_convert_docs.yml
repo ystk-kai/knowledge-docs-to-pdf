@@ -1,4 +1,4 @@
-name: Build
+name: Convert documents to PDF
 
 on:
   workflow_call:
@@ -7,7 +7,7 @@ on:
         required: true
 
 jobs:
-  build:
+  convert_nextjs:
     runs-on: ubuntu-latest
     
     steps:
